@@ -1,0 +1,859 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ExploreX - Premium Tour Guide</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+
+    <style>
+        /* GLOBAL */
+        body {
+            font-family: "Poppins", sans-serif;
+        }
+
+        /* NAVBAR */
+        .navbar {
+          position: fixed;
+          top: 0;
+          width: 100%;
+          padding: 20px 40px;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          transition: 0.35s ease;
+          z-index: 1000;
+
+        }
+
+        .navbar.scrolled {
+            padding: 10px 40px;
+            background: rgba(0, 0, 0, 0.55);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 18px rgba(0, 0, 0, 0.4);
+        }
+
+        /* Warna saat scroll */
+        .navbar.scrolled .nav-link {
+        color: grey !important;
+        }
+
+        /* Hover */
+        .navbar-nav .nav-link:hover {
+        color: grey !important;
+        }
+
+        .navbar-brand {
+         color: #b0b0b0 !important; /* abu-abu */
+        }
+
+        /* HERO PARALLAX */
+        .hero {
+            height: 100vh;
+            background: url("awal.jpg");
+            background-position: center;   
+            background-size: cover; 
+            position: relative;
+        }
+
+        .hero::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to bottom, rgba(0,0,0,.4), rgba(0,0,0,.7));
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            animation: fadeIn 1.5s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from {opacity: 0; transform: translateY(20px);}
+            to {opacity: 1; transform: translateY(0);}
+        }
+
+        /* GLASS CARD */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 20px;
+            padding: 0;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.25);
+            transition: 0.4s;
+        }
+
+        .glass-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+        }
+
+        /* FOOTER */
+        footer {
+            background: #b0b0b0;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-transparent fixed-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="#">
+            <img src="logo.png" alt="Logo" width="55" height="55" class="me-2">Cakrawala<span class="text-secondary">Tour</span></a>
+            <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navMenu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navMenu">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#destinations">Destination</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <header id="home" class="hero d-flex align-items-center justify-content-center text-center text-light">
+        <div class="hero-content">
+            <h1 class="fw-bold display-3 mb-3">Explore the World with Cakrawala Tour</h1>
+            <p class="lead mb-4">Nikmati pengalaman liburan tanpa ribet bersama Cakrawala Tour, Travel Smarter, Travel Happier.</p>
+            <a href="#destinations" class="btn btn-outline-light btn-lg mt-4 rounded-3">Explore Now</a>
+        </div>
+    </header>
+
+    <!-- DESTINATIONS -->
+    <section id="destinations" class="py-5">
+        <div class="container">
+            <h2 class="text-center fw-bold mb-4">Destinasi Populer</h2>
+            <p class="text-center text-muted mb-5">Temukan tempat luar biasa di Indonesia</p>
+
+            <div class="row g-4 justify-content-center text-center">
+
+                <!-- CARD 1 -->
+                <div class="col-md-4">
+                    <div class="glass-card">
+                        <img src="baligwk.jpg" alt="Photo GWK" class="card-img-top rounded-4">
+                        <div class="p-3">
+                            <h5 class="fw-bold">Pulau Bali</h5>
+                            <p>Nikmati keindahan Pantai indah, angin hangat, suasana damai, di Pulau Bali.</p>
+                            <button class="btn btn-secondary w-100" data-bs-toggle="modal" data-bs-target="#modalBali">
+                             Detail
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CARD 2 -->
+                <div class="col-md-4">
+                    <div class="glass-card">
+                        <img src="jawa.png" class="card-img-top rounded-4">
+                        <div class="p-3">
+                            <h5 class="fw-bold">Pulau Jawa</h5>
+                            <p>Pendakian penuh petualangan dengan panorama spektakuler dii Pulau Jawa</p>
+                            <button class="btn btn-secondary w-100" data-bs-toggle="modal" data-bs-target="#modalJawa">
+                             Detail
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CARD 3 -->
+                <div class="col-md-4">
+                    <div class="glass-card">
+                        <img src="labuanbajo1.jpg" class="card-img-top rounded-4">
+                        <div class="p-3">
+                            <h5 class="fw-bold">Nusa Tenggara</h5>
+                            <p>Nikmati keindahan alam yang ada di Nusa Tenggara.</p>
+                            <button class="btn btn-secondary w-100" data-bs-toggle="modal" data-bs-target="#modalNTT">
+                            Detail
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="col-md-4">
+                    <div class="glass-card">
+                        <img src="bandaneira2.jpeg" class="card-img-top rounded-4">
+                        <div class="p-3">
+                            <h5 class="fw-bold">Maluku</h5>
+                            <p>Kota indah dengan budaya, seni, dan kuliner unik.</p>
+                            <button class="btn btn-secondary w-100" data-bs-toggle="modal" data-bs-target="#modalMaluku">
+                            Detail
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 5 -->
+                <div class="col-md-4">
+                    <div class="glass-card">
+                        <img src="rajaampat2.jpeg" class="card-img-top rounded-4">
+                        <div class="p-3">
+                            <h5 class="fw-bold">Jayapura (Papua)</h5>
+                            <p>Kunjungi Pegunungan hijau, laut jernih, dan budaya yang hangat.</p>
+                            <button class="btn btn-secondary w-100" data-bs-toggle="modal" data-bs-target="#modalPapua">
+                            Detail
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!--Modal Bali -->
+     <div class="modal fade" id="modalBali" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title fw-bold">Paket Wisata Bali</h5>
+                    <button class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+
+                <div class="modal-body">
+                    <img src="pulaubali.png" class="w-100 mb-3 rounded">
+
+                    <p>Bali dikenal sebagai pulau surgawi yang memadukan keindahan alam, budaya, dan spiritualitas dalam satu tempat. 
+                    Hamparan pantai berpasir putih, ombak yang menenangkan, sawah terasering yang hijau, serta atmosfer yang damai menjadikan Bali destinasi wisata kelas dunia. 
+                    Salah satu ikon megah yang tidak boleh dilewatkan adalah <b> Garuda Wisnu Kencana (GWK) </b>, sebuah taman budaya yang menampilkan patung raksasa Dewa Wisnu yang menunggangi Garuda. 
+                    Patung setinggi 121 meter ini menjadi salah satu yang tertinggi di dunia, menyimbolkan kebijaksanaan, keberanian, dan perlindungan. 
+                    Pengunjung dapat menikmati pemandangan spektakuler dari ketinggian, pertunjukan seni Bali, dan suasana budaya yang kental di area GWK.</p>
+
+                    <p>Selain keindahan alam dan budayanya, Bali juga menawarkan beragam kuliner khas yang kaya rasa. 
+                    Makanan seperti <b> Ayam Betutu </b>, yang dimasak dengan rempah tradisional hingga meresap sempurna, menjadi favorit wisatawan. 
+                    Babi Guling dengan kulit renyah dan bumbu khas Bali menghadirkan cita rasa autentik yang kuat. Tak hanya itu, <b> Sate Lilit </b>, yang dibuat dari daging cincang berbumbu dan dililitkan pada batang sereh, 
+                    memberikan aroma dan rasa yang unik. Perpaduan budaya, alam, dan kuliner inilah yang menjadikan Bali tempat yang selalu dirindukan dan membuat setiap kunjungan terasa istimewa.</p>
+
+                    <p>
+                        Fasilitas yang disediakan :
+                    </p>
+
+                    <ul>
+                        <li>Fasilitas : Hotel, transportasi wisata, guide profesional, konsumsi harian.</li>
+                        <li>Pantai Kuta, Desa Panglipuran, GWK (Garuda Wisnu Kencana).</li>
+                        <li>Pemandu wisata profesional.</li>
+                        <li>Makan 3x sehari.</li>
+                    </ul>
+                </div>
+
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                     <button class="btn btn-primary"
+                        data-bs-dismiss="modal"
+                        data-bs-toggle="modal"
+                        data-bs-target="#modalPaket">
+                        Pesan Sekarang
+                     </button>
+                </div>
+            </div>
+        </div>
+     </div>
+
+     <!-- MODAL PAKET TOUR -->
+    <div class="modal fade" id="modalPaket" tabindex="-1">
+       <div class="modal-dialog modal-lg">
+          <div class="modal-content">
+
+           <div class="modal-header">
+                <h5 class="modal-title fw-bold">Paket Tour Bali</h5>
+                <button class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+
+        <!-- Paket 1 -->
+        <div class="card mb-3">
+          <div class="card-body">
+            <h4 class="fw-bold">🌴 Paket 1 — Bali Explore Singgle</h4>
+            <p><b>Harga:</b> Rp2.500.000</p>
+            <ul>
+              <li>Hotel 5 hari 4 malam</li>
+              <li>Sarapan</li>
+              <li>Transport + driver</li>
+              <li>GWK, Pantai Pandawa, Uluwatu</li>
+              <li>Tiket Tari Kecak</li>
+              <li>Makan siang & malam (2x)</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Paket 2 -->
+        <div class="card mb-3">
+          <div class="card-body">
+            <h4 class="fw-bold">🌅 Paket 2 — Bali Relax & Nature </h4>
+            <p><b>Harga:</b> Rp3.700.000/orang</p>
+            <ul>
+              <li>Hotel 4 hari 3 malam</li>
+              <li>Floating breakfast di Ubud</li>
+              <li>Kintamani, Tegallalang, Tirta Empul</li>
+              <li>Bali Zoo / Bali Safari (pilih salah satu)</li>
+              <li>Transport + driver</li>
+              <li>Dokumentasi kamera</li>
+            </ul>
+          </div>
+        </div>
+
+         <!-- Paket 3 -->
+        <div class="card mb-3">
+          <div class="card-body">
+            <h4 class="fw-bold">🏖️ Paket 3 — Bali Premium Couple</h4>
+            <p><b>Harga:</b> Rp5.900.000/couple</p>
+            <ul>
+              <li>Villa private pool</li>
+              <li>Romantic dinner</li>
+              <li>Tour Nusa Penida</li>
+              <li>Transport + speedboat PP</li>
+              <li>Dokumentasi drone</li>
+            </ul>
+          </div>
+        </div>
+
+
+            <div class="modal-footer">
+                <button class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+          </div>
+       </div>
+    </div>
+
+    <!--Modal Jawa -->
+    <div class="modal fade" id="modalJawa" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title fw-bold">Paket Wisata Jawa</h5>
+                    <button class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+
+                <div class="modal-body">
+                    <img src="jawa.png" class="w-100 mb-3 rounded">
+
+                    <p>Pulau Jawa merupakan salah satu pulau terpenting di Indonesia yang kaya akan budaya, sejarah, dan keindahan alam. 
+                    Di bagian tengah pulau ini terdapat Dataran Tinggi <b> Dieng </b>, sebuah kawasan yang dijuluki 
+                    “Negeri di Atas Awan” karena suhu dinginnya dan pemandangan awan yang menyelimuti perbukitan. Dieng menawarkan pesona berupa Telaga Warna, kawah vulkanik, 
+                    candi-candi kuno, serta sunrise indah dari Bukit Sikunir. Selain itu, Pulau Jawa juga memiliki <b> Gunung Semeru </b>, puncak tertinggi di Jawa yang menjadi impian para pendaki. 
+                    Gunung ini terkenal dengan pemandangan megah Mahameru dan aktivitas mini-erupsinya di puncak Jonggring Saloko.</p>
+
+                    <p>Tidak hanya alamnya yang memukau, Pulau Jawa juga terkenal dengan kuliner khas yang kaya rasa. 
+                        Di Jawa Tengah, terdapat makanan seperti <b> Gudeg </b>, hidangan manis gurih khas Yogyakarta yang dimasak berjam-jam hingga meresap. 
+                        Jawa Timur menawarkan cita rasa kuat seperti <b> Rawon </b>, sup daging hitam dengan bumbu kluwek, serta Rujak Cingur yang unik. 
+                        Sementara Jawa Barat memiliki kuliner segar seperti <b> Nasi Liwet </b>, Soto Bandung, hingga Seblak yang pedas nikmat. 
+                        Perpaduan wisata alam megah dan kuliner lezat menjadikan Pulau Jawa destinasi lengkap yang wajib dikunjungi oleh setiap wisatawan.</p>
+
+                    <p>
+                        Fasilitas Yang disediakan :
+                    </p>
+
+                    <ul>
+                        <li>Fasilitas : Hotel, transportasi wisata, guide profesional, konsumsi harian.</li>
+                        <li>5 Hari 4 Malam</li>
+                        <li>Dieng, Gunung Sumeru </li>
+                        <li>Pemandu wisata profesional</li>
+                        <li>Makan 3x sehari</li>
+                    </ul>
+                </div>
+
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                     <button class="btn btn-primary"
+                        data-bs-dismiss="modal"
+                        data-bs-toggle="modal"
+                        data-bs-target="#modalJawaPaket">
+                        Pesan Sekarang
+                     </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL PAKET TOUR -->
+    <div class="modal fade" id="modalJawaPaket" tabindex="-1">
+       <div class="modal-dialog modal-lg">
+          <div class="modal-content">
+
+           <div class="modal-header">
+                <h5 class="modal-title fw-bold">Paket Tour Jawa</h5>
+                <button class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+
+            <!-- Paket 1 -->
+            <div class="card mb-3">
+               <div class="card-body">
+                  <h4 class="fw-bold">⛰️ Paket 1 — Jawa Adventure </h4>
+                  <p><b>Harga:</b> Rp1.950.000/orang</p>
+
+                  <ul>
+                      <li>Hotel + transport wisata</li>
+                      <li>Dieng Plateau & Gunung Semeru</li>
+                      <li>Sunrise Gunung Bromo</li>
+                      <li>Candi Prambanan</li>
+                      <li>Pemandu wisata profesional</li>
+                  </ul>
+               </div>
+            </div>
+
+               <!-- Paket 2 -->
+                <div class="card mb-3">
+                    <div class="card-body">
+                        <h4 class="fw-bold">🌄 Paket 2 — Jawa Explorer </h4>
+                        <p><b>Harga:</b> Rp1.650.000/orang</p>
+                        <ul>
+                            <li>Hotel + transport wisata</li>
+                            <li>Kawah Ijen (Blue Fire)</li>
+                            <li>Taman Nasional Baluran</li>
+                            <li>Pantai Papuma</li>
+                            <li>Dokumentasi foto & video</li>
+                        </ul>
+                    </div>
+                </div>
+
+               <!-- Paket 3 -->
+                <div class="card mb-3">
+                    <div class="card-body">
+                        <h4 class="fw-bold">🏯 Paket 3 — Jawa Culture Trip </h4>
+                        <p><b>Harga:</b> Rp1.250.000/orang</p>
+                        <ul>
+                            <li>Penginapan + transport</li>
+                            <li>Candi Borobudur</li>
+                            <li>Malioboro</li>
+                            <li>Hutan Pinus Mangunan</li>
+                            <li>Free foto spot premium</li>
+                        </ul>
+                    </div>
+                </div>
+
+             <div class="modal-footer">
+              <button class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+          </div>
+       </div>
+    </div>
+
+    <!-- Modal NTT -->
+    <div class="modal fade" id="modalNTT" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title fw-bold">Paket Wisata Nusa Tenggara</h5>
+                    <button class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+
+                <div class="modal-body">
+                    <img src="NTT.png" class="w-100 mb-3 rounded">
+
+                    <p>Nusa Tenggara merupakan salah satu wilayah Indonesia yang menawarkan keindahan alam eksotis dan masih sangat alami. 
+                        Di Nusa Tenggara Barat (NTB), destinasi unggulannya adalah <b> Pulau Lombok </b>, yang terkenal dengan Pantai Kuta Mandalika, Gili Trawangan yang mempesona, 
+                        serta Gunung Rinjani yang menjadi salah satu jalur pendakian terbaik di Asia. Rinjani menawarkan panorama danau Segara Anak, pemandangan puncak yang menakjubkan, 
+                        dan suasana pegunungan yang begitu memikat. Sementara itu, di Nusa Tenggara Timur (NTT), wisatawan dapat menjelajahi <b> Labuan Bajo </b>, rumah bagi hewan purba Komodo yang hanya ada di Indonesia. 
+                        Keindahan perairannya sangat populer di dunia dengan spot snorkeling dan diving seperti Pink Beach, Pulau Padar, 
+                        dan Manta Point yang memiliki air sejernih kristal.</p>
+
+                    <p>Nusa Tenggara memiliki beragam makanan khas dengan cita rasa yang kuat dan unik. Di NTB, hidangan populer seperti Ayam Taliwang,
+                     Plecing Kangkung, dan Sate Rembiga terkenal dengan bumbu pedas dan aroma khasnya. Sementara di NTT, kuliner seperti Se’i Sapi, Jagung Bose, 
+                     dan Kolo menjadi favorit karena proses memasaknya yang tradisional serta rasa gurih dan smoky yang khas. Kekayaan kuliner ini membuat perjalanan ke Nusa Tenggara semakin lengkap dan berkesan.
+                    </p>
+
+                    <p>
+                       Fasilitas yang disediakan :
+                    </p>
+
+                    <ul>
+                        <li>Paket Harga : 1.900.000 / Orang</li>
+                        <li>Fasilitas : Hotel, transportasi wisata, guide profesional, konsumsi harian.</li>
+                        <li>5 Hari 4 Malam</li>
+                        <li>Pulau Lombok, Labuan Bajo </li>
+                        <li>Pemandu wisata profesional</li>
+                        <li>Makan 3x sehari</li>
+                    </ul>
+                </div>
+
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button class="btn btn-primary"
+                        data-bs-dismiss="modal"
+                        data-bs-toggle="modal"
+                        data-bs-target="#modalNTTPaket">
+                        Pesan Sekarang
+                     </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL PAKET TOUR -->
+    <div class="modal fade" id="modalNTTPaket" tabindex="-1">
+       <div class="modal-dialog modal-lg">
+          <div class="modal-content">
+
+           <div class="modal-header">
+                <h5 class="modal-title fw-bold">Paket Tour NTT</h5>
+                <button class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+
+            
+                <!-- Paket 1 -->
+                <div class="card mb-3">
+                    <div class="card-body">
+                        <h4 class="fw-bold">🐉 Paket 1 — Komodo Explorer </h4>
+                        <p><b>Harga:</b> Rp2.500.000/orang</p>
+                        <ul>
+                            <li>Labuan Bajo city tour</li>
+                            <li>Pulau Komodo & Pulau Padar</li>
+                            <li>Pantai Pink</li>
+                            <li>Kapal wisata + makan siang</li>
+                            <li>Dokumentasi premium</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Paket 2 -->
+                <div class="card mb-3">
+                    <div class="card-body">
+                        <h4 class="fw-bold">🌅 Paket 2 — Labuan Bajo Romantic </h4>
+                        <p><b>Harga:</b> Rp3.900.000/couple</p>
+                        <ul>
+                            <li>Hotel romantic view</li>
+                            <li>Private speedboat</li>
+                            <li>Pulau Kanawa & Manjarite</li>
+                            <li>Sunset dinner</li>
+                            <li>Free drone footage</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Paket 3 -->
+                <div class="card mb-3">
+                    <div class="card-body">
+                        <h4 class="fw-bold">🏝️ Paket 3 — NTT Island Hopping </h4>
+                        <p><b>Harga:</b> Rp3.300.000/orang</p>
+                        <ul>
+                            <li>Pulau Kelor, Rinca, Padar</li>
+                            <li>Pantai Pink & Taka Makassar</li>
+                            <li>Snorkeling & diving opt.</li>
+                            <li>Transport + kapal wisata</li>
+                            <li>Makan 3x sehari</li>
+                        </ul>
+                    </div>
+                </div>
+
+            <div class="modal-footer">
+              <button class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+          </div>
+       </div>
+    </div>
+
+    <!-- Modal Maluku -->
+     <div class="modal fade" id="modalMaluku" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title fw-bold">Paket Wisata Maluku</h5>
+                    <button class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+
+                <div class="modal-body">
+                    <img src="maluku.png" class="w-100 mb-3 rounded">
+
+                    <p>Maluku dikenal sebagai negeri kepulauan dengan laut jernih, sejarah kaya, dan pesona alam yang masih sangat alami. 
+                        Salah satu destinasi terbaiknya adalah <b> Banda Neira </b>, pulau bersejarah di Kepulauan Banda yang terkenal dengan benteng peninggalan kolonial, pantai indah, serta spot snorkeling dan diving yang menakjubkan. 
+                        Selain Banda Neira, Maluku juga memiliki wisata unggulan seperti <b> Pantai Ora </b> di Seram yang dijuluki Maldives-nya Indonesia, Pulau Kei dengan pasir putih super halus, 
+                        dan Ambon yang menawarkan keindahan <b> Teluk Ambon </b> serta budaya yang kuat. Kombinasi laut biru, kehidupan bawah laut yang kaya, dan sejarah rempah menjadikan Maluku destinasi eksotis yang wajib dikunjungi.</p>
+
+                    <p>Maluku memiliki kuliner khas yang sederhana namun kaya rasa, banyak yang berbahan dasar sagu dan hasil laut. 
+                        Salah satu makanan paling terkenal adalah <b> Papeda </b>, bubur sagu yang biasanya disajikan dengan kuah ikan kuning bercita rasa segar dan rempah yang kuat. 
+                        Selain itu, terdapat <b> Ikan Bakar Dabu-Dabu </b>, hidangan ikan segar yang dipadukan dengan sambal tomat segar khas Maluku. 
+                        Makanan lain seperti Gohu Ikan, yaitu <b> ikan mentah berbumbu pedas-asam </b>, serta Sagu Woku Komo-Komo juga menjadi favorit wisatawan. 
+                        Keunikan bahan dan cara memasak tradisional membuat kuliner Maluku menjadi pengalaman yang berbeda dan menggugah selera.
+                    </p>
+
+                    <p>
+                       Fasilitas yang disediakan :
+                    </p>
+
+                    <ul>
+                        <li>Fasilitas : Hotel, transportasi wisata, guide profesional, konsumsi harian.</li>
+                        <li>Banda Neira, Pantai Ora, Teluk Ambon </li>
+                        <li>Pemandu wisata profesional</li>
+                        <li>Makan 3x sehari</li>
+                    </ul>
+                </div>
+
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button class="btn btn-primary"
+                        data-bs-dismiss="modal"
+                        data-bs-toggle="modal"
+                        data-bs-target="#modalMalukuPaket">
+                        Pesan Sekarang
+                     </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Paket  Tour -->
+    <div class="modal fade" id="modalMalukuPaket" tabindex="-1">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <h5 class="modal-title fw-bold">Paket Tour Maluku</h5>
+                <button class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+
+            <div class="modal-body">
+
+                <!-- Paket 1 -->
+                <div class="card mb-3">
+                    <div class="card-body">
+                        <h4 class="fw-bold">🏝️ Paket 1 — Banda Neira Heritage 4D3N</h4>
+                        <p><b>Harga:</b> Rp2.300.000/orang</p>
+                        <ul>
+                            <li>City tour Banda Neira</li>
+                            <li>Benteng Belgica & Istana Mini</li>
+                            <li>Snorkeling Pulau Rhun</li>
+                            <li>Kapal wisata + makan siang</li>
+                            <li>Guide profesional</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Paket 2 -->
+                <div class="card mb-3">
+                    <div class="card-body">
+                        <h4 class="fw-bold">🌊 Paket 2 — Pantai Ora Paradise 3D2N</h4>
+                        <p><b>Harga:</b> Rp3.700.000/orang</p>
+                        <ul>
+                            <li>Resort atas laut</li>
+                            <li>Snorkeling unlimited</li>
+                            <li>Danau Saleman tour</li>
+                            <li>Makan 3x sehari</li>
+                            <li>Transport darat + laut</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Paket 3 -->
+                <div class="card mb-3">
+                    <div class="card-body">
+                        <h4 class="fw-bold">🐚 Paket 3 — Maluku Island Hopping 5D4N</h4>
+                        <p><b>Harga:</b> Rp3.900.000/orang</p>
+                        <ul>
+                            <li>Pulau Samal, Pulau Rhun, Pulau Ai</li>
+                            <li>Diving (opsional)</li>
+                            <li>Kapal private tour</li>
+                            <li>Free dokumentasi drone</li>
+                            <li>Transport lengkap</li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="modal-footer">
+                <button class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+    <!-- Modal Papua -->
+    <div class="modal fade" id="modalPapua" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title fw-bold">Paket Wisata Jayapura (Papua)</h5>
+                    <button class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+
+                <div class="modal-body">
+                    <img src="papua.png" class="w-100 mb-3 rounded">
+
+                    <p>Papua dikenal sebagai surga terakhir di Indonesia dengan keindahan alam yang masih sangat alami dan eksotis. 
+                        Destinasi paling terkenal adalah<b> Raja Ampat </b>, kepulauan dengan laut sebening kristal, terumbu karang yang sangat kaya, 
+                        serta pemandangan pulau-pulau karst yang menakjubkan. Raja Ampat bahkan disebut sebagai salah satu lokasi snorkeling dan diving terbaik di dunia. 
+                        Selain itu, Papua juga memiliki wisata memukau seperti<b> Lembah Baliem </b>, tempat budaya suku Dani yang unik dan pemandangan pegunungan yang megah, 
+                        serta <b> Danau Sentani </b> yang menawarkan panorama tenang dan desa-desa adat di sekitarnya. Perpaduan alam, budaya, 
+                        dan keaslian lingkungan menjadikan Papua destinasi luar biasa bagi para pecinta petualangan.</p>
+
+                    <p>Papua memiliki kuliner khas yang sederhana namun penuh nilai tradisional, banyak berbahan dasar hasil alam seperti sagu, 
+                        ikan, dan sayuran hutan. Makanan yang paling terkenal adalah <b> Papeda </b>, bubur sagu yang disajikan dengan kuah ikan kuning atau ikan bakar, 
+                        menjadi hidangan khas masyarakat pesisir. Selain itu, ada <b> Ikan Bakar Manokwari </b>, yang terkenal dengan bumbu sambal khas yang pedas dan segar. 
+                        Kuliner lainnya seperti Udang Selingkuh dari Wamena, yang memiliki capit mirip kepiting, serta Sagu Lempeng, makanan ringan dari 
+                        sagu yang dipanggang, juga menjadi favorit wisatawan. Cita rasa alami dan teknik memasak tradisional membuat kuliner Papua memberikan pengalaman
+                        autentik yang sulit ditemukan di tempat lain.
+                    </p>
+
+                    <p>
+                        Fasilitas yang disediakan :
+                    </p>
+
+                    <ul>
+                        <li>Fasilitas : Hotel, transportasi wisata, guide profesional, konsumsi harian.</li>
+                        <li>Raja Ampat, Lembah Baliem, Danau Sentani </li>
+                        <li>Pemandu wisata profesional</li>
+                        <li>Makan 3x sehari</li>
+                    </ul>
+                </div>
+
+                <div class="modal-footer">
+                <button class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button class="btn btn-primary"
+                    data-bs-dismiss="modal"
+                    data-bs-toggle="modal"
+                    data-bs-target="#modalPapuaPaket">
+                    Pesan Sekarang
+                </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Paket -->
+     <div class="modal fade" id="modalPapuaPaket" tabindex="-1">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <h5 class="modal-title fw-bold">Paket Tour Papua — Jayapura</h5>
+                <button class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+
+            <div class="modal-body">
+
+                <!-- Paket 1 -->
+                <div class="card mb-3">
+                    <div class="card-body">
+                        <h4 class="fw-bold">🌅 Paket 1 — Sentani Explorer 4D3N</h4>
+                        <p><b>Harga:</b> Rp2.800.000/orang</p>
+                        <ul>
+                            <li>Boat tour Danau Sentani</li>
+                            <li>Kunjungan Kampung Asei (lukisan kulit kayu)</li>
+                            <li>Pantai Base-G</li>
+                            <li>Transport lengkap + makan 3x</li>
+                            <li>Guide profesional</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Paket 2 -->
+                <div class="card mb-3">
+                    <div class="card-body">
+                        <h4 class="fw-bold">🏖️ Paket 2 — Jayapura Beach & Culture 3D2N</h4>
+                        <p><b>Harga:</b> Rp3.400.000/orang</p>
+                        <ul>
+                            <li>Pantai Harlem (Maldives-nya Papua)</li>
+                            <li>Pantai Base-G</li>
+                            <li>Wisata kuliner khas Papua</li>
+                            <li>Hotel bintang 3</li>
+                            <li>Dokumentasi kamera</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Paket 3 -->
+                <div class="card mb-3">
+                    <div class="card-body">
+                        <h4 class="fw-bold">⛰️ Paket 3 — Papua Adventure Premium 5D4N</h4>
+                        <p><b>Harga:</b> Rp4.900.000/orang</p>
+                        <ul>
+                            <li>Danau Sentani + pulau-pulau kecil</li>
+                            <li>Pantai Harlem & Pantai Yacoba</li>
+                            <li>Tugu MacArthur & Skyline Jayapura</li>
+                            <li>Makan Harian + kapal private</li>
+                            <li>Doku mentasi drone</li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="modal-footer">
+                <button class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+    <!-- SERVICES -->
+    <section id="services" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="fw-bold text-center mb-4">Layanan Kami</h2>
+
+            <div class="row text-center">
+                <div class="col-md-4 p-4">
+                    <i class="bi bi-people-fill display-5 text-secondary"></i>
+                    <h5 class="fw-bold mt-3">Guide Profesional</h5>
+                    <p>Pemandu berpengalaman dan bersertifikat.</p>
+                </div>
+
+                <div class="col-md-4 p-4">
+                    <i class="bi bi-car-front-fill display-5 text-secondary"></i>
+                    <h5 class="fw-bold mt-3">Transportasi Nyaman</h5>
+                    <p>Unit kendaraan aman & nyaman untuk perjalanan jauh.</p>
+                </div>
+
+                <div class="col-md-4 p-4">
+                    <i class="bi bi-calendar-check display-5 text-secondary"></i>
+                    <h5 class="fw-bold mt-3">Paket Customize</h5>
+                    <p>Buat paket liburan sesuai kebutuhanmu.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="py-5">
+        <div class="container">
+            <h2 class="fw-bold text-center mb-4">Contact Me</h2>
+
+            <div class="row justify-content-center">
+                <div class="col-md-6">
+                    <form class="glass-card p-4 rounded-4">
+                        <input type="text" class="form-control mb-3" placeholder="Full Name">
+                        <input type="email" class="form-control mb-3" placeholder="Your Email">
+                        <input type="contact" class="form-control mb-3" placeholder="Your Contact">
+                        <textarea class="form-control mb-3" rows="4" placeholder="Pesan"></textarea>
+                        <button class="btn btn-secondary w-100 rounded-pill">Kirim</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="text-center text-light py-3">
+        <p class="mb-0">© Cakrawala Tour. All Rights Reserved.</p>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        // Navbar scroll effect
+    const navBar = document.querySelector(".navbar");
+
+    window.addEventListener("scroll", () => {
+        if (window.scrollY > 20) {
+            navBar.classList.add("scrolled");
+        } else {
+            navBar.classList.remove("scrolled");
+        }
+    });
+    </script>
+
+</body>
+</html>
